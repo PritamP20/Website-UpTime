@@ -1,0 +1,43 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^6.18.0",
+    "@solana/kit": "^2.1.0",
+    "@solana/wallet-adapter-base": "^0.9.26",
+    "@solana/wallet-adapter-react": "^0.15.38",
+    "@solana/wallet-adapter-react-ui": "^0.9.38",
+    "@solana/wallet-adapter-walletconnect": "^0.1.20",
+    "@solana/wallet-adapter-wallets": "^0.19.36",
+    "@solana/web3.js": "1",
+    "@types/axios": "^0.14.4",
+    "@types/jsonwebtoken": "^9.0.9",
+    "axios": "^1.9.0",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.503.0",
+    "next": "15.3.1",
+    "next-themes": "^0.4.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "wagmi": "^2.15.0",
+    "common":"*"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "api",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "scripts": {
+    "dev": "bun index.ts"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "bs58": "^6.0.0",
+    "cors": "^2.8.5",
+    "db": "*",
+    "express": "^5.1.0"
+  }
+}
