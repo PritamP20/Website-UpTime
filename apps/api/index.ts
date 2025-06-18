@@ -9,9 +9,9 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 
-app.post("/api/v1/website", middleware, async (req: Request, res: Response) => {
-    const userId:String = req.userId!;
-    const {url} = req.body;
+app.post("/api/v1/website", async (req: Request, res: Response) => {
+    // const userId:String = req.userId!;
+    const {url, userId} = req.body;
     const data = await prismaClient.website.create({
         data: {
             userId: userId as string,
@@ -22,7 +22,7 @@ app.post("/api/v1/website", middleware, async (req: Request, res: Response) => {
     res.json({id:data.id})
 })
 
-app.get("/api/v1/website/status", middleware, async (req: Request, res: Response) => {
+app.get("/api/v1/website/status", async (req: Request, res: Response) => {
     const websiteId = req.query.websiteId as string;
     const userId = req.userId;
 
@@ -40,7 +40,7 @@ app.get("/api/v1/website/status", middleware, async (req: Request, res: Response
     res.json(data)
 })
 
-app.get("/api/v1/websites", middleware, async (req: Request, res: Response) => {
+app.get("/api/v1/websites", async (req: Request, res: Response) => {
     const userId = req.userId;
 
     const websites = await prismaClient.website.findMany({
@@ -57,8 +57,9 @@ app.get("/api/v1/websites", middleware, async (req: Request, res: Response) => {
     })
 })
 
-app.delete("/api/v1/website", middleware, async (req: Request, res: Response) => {
-    const userId = req.userId;
+app.delete("/api/v1/website", async (req: Request, res: Response) => {
+    const userId = "1";
+    // const userId = req.userId;
     const websiteId = req.query.websiteId
 
     const response = await prismaClient.website.update({
@@ -70,6 +71,7 @@ app.delete("/api/v1/website", middleware, async (req: Request, res: Response) =>
             disabled:true
         }
     })
+    console.log(response)
 
     res.json(response)
 })

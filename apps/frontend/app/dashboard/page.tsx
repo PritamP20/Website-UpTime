@@ -61,7 +61,7 @@ function CreateWebsiteModal({ isOpen, onClose }: { isOpen: boolean; onClose: (ur
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 backdrop-blur-sm transition-opacity duration-200">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-md border dark:border-gray-700 transform transition-all duration-200">
+      <div className="bg-white dark:bg-[#0d0d0d] rounded-lg shadow-xl p-6 w-full max-w-md border dark:border-gray-700 transform transition-all duration-200">
         <h2 className="text-xl font-bold mb-4 dark:text-white flex items-center">
           <Globe className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
           Add New Website
@@ -148,7 +148,7 @@ function WebsiteCard({ website, onDelete }: { website: ProcessedWebsite, onDelet
 
   return (
     <div 
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-500 dark:border-gray-700 transition-all duration-200 hover:shadow-lg"
+      className="bg-white dark:bg-[#0d0d0d] rounded-lg shadow-md overflow-hidden border border-gray-500 dark:border-gray-700 transition-all duration-200 hover:shadow-lg"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -350,62 +350,24 @@ function App() {
   }, [processedWebsites]);
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
-      <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <Globe className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Uptime Monitor</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className="p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors duration-200"
-                aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-              >
-                {isDarkMode ? (
-                  <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-                ) : (
-                  <Moon className="w-5 h-5 text-gray-600" />
-                )}
-              </button>
-              <button
-                onClick={handleRefresh}
-                disabled={isLoading}
-                className={`p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors duration-200 ${isLoading ? 'animate-spin' : ''}`}
-                aria-label="Refresh websites status"
-              >
-                <RefreshCw className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-              </button>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors duration-200 shadow-sm"
-              >
-                <Plus className="w-4 h-4" />
-                <span>Add Website</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-black-900 dark:bg-black-900 transition-colors duration-200 pt-28 pb-20 md:pt-36 md:pb-32 relative overflow-hidden">
 
       <main className="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         {/* Stats overview */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 border border-gray-500 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-colors duration-200">
+          <div className="bg-white dark:bg-[#0d0d0d] rounded-lg shadow-sm p-4 border border-gray-500 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-colors duration-200">
             <div className="text-sm font-medium text-gray-500 dark:text-gray-400">Total Websites</div>
             <div className="text-2xl font-bold text-gray-900 dark:text-white mt-1">{stats.totalSites}</div>
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 border border-gray-500 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-800 transition-colors duration-200">
+          <div className="bg-white dark:bg-[#0d0d0d] rounded-lg shadow-sm p-4 border border-gray-500 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-800 transition-colors duration-200">
             <div className="text-sm font-medium text-gray-500 dark:text-gray-400">Online</div>
             <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mt-1">{stats.upSites}</div>
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 border border-gray-500 dark:border-gray-700 hover:border-red-200 dark:hover:border-red-800 transition-colors duration-200">
+          <div className="bg-white dark:bg-[#0d0d0d] rounded-lg shadow-sm p-4 border border-gray-500 dark:border-gray-700 hover:border-red-200 dark:hover:border-red-800 transition-colors duration-200">
             <div className="text-sm font-medium text-gray-500 dark:text-gray-400">Offline</div>
             <div className="text-2xl font-bold text-red-600 dark:text-red-400 mt-1">{stats.downSites}</div>
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 border border-gray-500 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-colors duration-200">
+          <div className="bg-white dark:bg-[#0d0d0d] rounded-lg shadow-sm p-4 border border-gray-500 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-colors duration-200">
             <div className="text-sm font-medium text-gray-500 dark:text-gray-400">Unknown</div>
             <div className="text-2xl font-bold text-gray-600 dark:text-gray-400 mt-1">{stats.unknownSites}</div>
           </div>
@@ -421,9 +383,20 @@ function App() {
                 onDelete={handleDeleteWebsite}
               />
             ))}
-          </div>
+            <div className="text-center py-16 bg-white dark:bg-[#0d0d0d] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-700 transition-colors duration-200">
+              <Globe className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">Add your new Websites to monitor</h3>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors duration-200"
+              >
+                <Plus className="w-4 h-4" />
+                <span>Add Your Website</span>
+              </button>
+            </div>
+            </div>
         ) : (
-          <div className="text-center py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-700 transition-colors duration-200">
+          <div className="text-center py-16 bg-white dark:bg-[#0d0d0d] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-700 transition-colors duration-200">
             <Globe className="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">No websites added yet</h3>
             <p className="text-gray-500 dark:text-gray-400 mb-6">Start monitoring your websites by adding your first URL</p>
@@ -458,6 +431,7 @@ function App() {
             setIsModalOpen(false);
             await axios.post(`${API_BACKEND_URL}/api/v1/website`, {
               url,
+              userId: "1"
             }, {
               headers: {
                 Authorization: token,
